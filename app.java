@@ -53,7 +53,8 @@ public class app {
                     addBook(scanner);
                     break;
                 case 2:
-                    listBooks();
+                      listBooks();
+                    
                     break;
                 case 3:
                     break;
