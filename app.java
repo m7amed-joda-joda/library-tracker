@@ -53,6 +53,7 @@ public class app {
                     addBook(scanner);
                     break;
                 case 2:
+                    listBooks();
                     break;
                 case 3:
                     break;
@@ -98,6 +99,17 @@ public class app {
         System.out.println("Added: " + title);
     }
      
+    
+        static void listBooks() {
+        ArrayList<String> books = loadBooks();
+        if (books.size() == 0) {
+            System.out.println("No books yet");
+        }
+        for (int i = 0; i < books.size(); i++) {
+            String[] parts = books.get(i).split(";");
+            System.out.println((i + 1) + ". " + parts[0] + " - " + parts[1]);
+        }
+    }
      
      
 }
