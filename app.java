@@ -1,6 +1,7 @@
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -49,6 +50,7 @@ public class app {
 
             switch (choice) {
                 case 1:
+                    addBook(scanner);
                     break;
                 case 2:
                     break;
@@ -69,4 +71,33 @@ public class app {
      
      
      }
+     
+     
+     
+     static void saveBooks(ArrayList<String> books) {
+        try {
+            PrintWriter pw = new PrintWriter("books.json");
+            for (int i = 0; i < books.size(); i++) {
+                pw.println(books.get(i));
+            }
+            pw.close();
+        } catch (IOException e) {
+            System.out.println("Error saving file");
+        }
+    }
+
+    static void addBook(Scanner input) {
+        System.out.print("Title: ");
+        String title = input.nextLine();
+        System.out.print("Author: ");
+        String author = input.nextLine();
+
+        ArrayList<String> books = loadBooks();
+        books.add(title + ";" + author);
+        saveBooks(books);
+        System.out.println("Added: " + title);
+    }
+     
+     
+     
 }
