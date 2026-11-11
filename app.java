@@ -1,4 +1,7 @@
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class app {
@@ -7,6 +10,26 @@ public class app {
      static void printBanner() {
         System.out.println("=== Library Tracker ===");
     }
+     
+         static ArrayList<String> loadBooks() {
+        ArrayList<String> books = new ArrayList<String>();
+        try {
+            File file = new File("books.json");
+            if (!file.exists()) {
+                return books;
+            }
+            Scanner sc = new Scanner(file);
+            while (sc.hasNextLine()) {
+                books.add(sc.nextLine());
+            }
+            sc.close();
+        } catch (IOException e) {
+            System.out.println("Error reading file");
+        }
+        return books;
+    }
+         
+         
      public static void main(String[] args) {
       printBanner();
       Scanner scanner = new Scanner(System.in);
