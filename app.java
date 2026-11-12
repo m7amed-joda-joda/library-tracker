@@ -103,7 +103,7 @@ public class app {
     
         static void listBooks() {
         ArrayList<String> books = loadBooks();
-        if (books.size() == 0) {
+        if (books.isEmpty()) {
             System.out.println("No books yet");
         }
         for (int i = 0; i < books.size(); i++) {
