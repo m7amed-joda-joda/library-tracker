@@ -77,7 +77,7 @@ public class app {
      }
      
      
-     
+     // Writes all books to books.json
      static void saveBooks(ArrayList<String> books) {
         try {
             PrintWriter pw = new PrintWriter("books.json");
