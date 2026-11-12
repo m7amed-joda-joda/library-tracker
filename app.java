@@ -9,7 +9,7 @@ public class app {
     
     
      static void printBanner() {
-        System.out.println("=== Library Tracker ===");
+        System.out.println("+++ Library Tracker +++");
     }
      
          static ArrayList<String> loadBooks() {
