@@ -57,8 +57,10 @@ public class app {
                     
                     break;
                 case 3:
+                    searchBooks(scanner);
                     break;
                 case 4:
+                    removeBook(scanner);
                     break;
                 case 5:
                     running = false;
@@ -111,6 +113,45 @@ public class app {
             System.out.println((i + 1) + ". " + parts[0] + " - " + parts[1]);
         }
     }
-     
+    static void searchBooks(Scanner input) {
+        System.out.print("Keyword: ");
+        String keyword = input.nextLine().toLowerCase();
+
+        ArrayList<String> books = loadBooks();
+        boolean found = false;
+
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).toLowerCase().contains(keyword)) {
+                String[] parts = books.get(i).split(";");
+                System.out.println(parts[0] + " - " + parts[1]);
+                found = true;
+            }
+        }
+
+        if (!found) {
+            System.out.println("No books found");
+        }
+    }
+     static void removeBook(Scanner input) {
+        System.out.print("Title to remove: ");
+        String title = input.nextLine();
+
+        ArrayList<String> books = loadBooks();
+        boolean found = false;
+        for (int i = 0; i < books.size(); i++) {
+            String[] parts = books.get(i).split(";");
+            if (parts[0].equalsIgnoreCase(title)) {
+                books.remove(i);
+                found = true;
+                break;
+            }
+        }
+        if (found) {
+            saveBooks(books);
+            System.out.println("Removed: " + title);
+        } else {
+            System.out.println("Not found");
+        }
+    }
      
 }
