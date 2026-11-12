@@ -123,6 +123,26 @@ public class app {
             }
         }
     }
-     
+     static void removeBook(Scanner input) {
+        System.out.print("Title to remove: ");
+        String title = input.nextLine();
+
+        ArrayList<String> books = loadBooks();
+        boolean found = false;
+        for (int i = 0; i < books.size(); i++) {
+            String[] parts = books.get(i).split(";");
+            if (parts[0].equalsIgnoreCase(title)) {
+                books.remove(i);
+                found = true;
+                break;
+            }
+        }
+        if (found) {
+            saveBooks(books);
+            System.out.println("Removed: " + title);
+        } else {
+            System.out.println("Not found");
+        }
+    }
      
 }
