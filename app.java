@@ -57,8 +57,10 @@ public class app {
                     
                     break;
                 case 3:
+                    searchBooks(scanner);
                     break;
                 case 4:
+                    removeBook(scanner);
                     break;
                 case 5:
                     running = false;
