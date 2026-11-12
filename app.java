@@ -11,7 +11,7 @@ public class app {
      static void printBanner() {
         System.out.println("+++ Library Tracker +++");
     }
-     
+     // Reads all books from books.json
          static ArrayList<String> loadBooks() {
         ArrayList<String> books = new ArrayList<String>();
         try {
