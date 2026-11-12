@@ -118,11 +118,18 @@ public class app {
         String keyword = input.nextLine().toLowerCase();
 
         ArrayList<String> books = loadBooks();
+        boolean found = false;
+
         for (int i = 0; i < books.size(); i++) {
             if (books.get(i).toLowerCase().contains(keyword)) {
                 String[] parts = books.get(i).split(";");
                 System.out.println(parts[0] + " - " + parts[1]);
+                found = true;
             }
+        }
+
+        if (!found) {
+            System.out.println("No books found");
         }
     }
      static void removeBook(Scanner input) {
