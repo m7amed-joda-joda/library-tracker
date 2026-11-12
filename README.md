@@ -2,5 +2,5 @@
 
 A small Java app to add, list, search, and remove books 
 
-Students: Mohammed Jouda and Mahmoud Jebril
+Students: S-A:Mohammed Jouda and S-B:Mahmoud Jebril
 
