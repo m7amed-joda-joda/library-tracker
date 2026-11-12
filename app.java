@@ -111,6 +111,18 @@ public class app {
             System.out.println((i + 1) + ". " + parts[0] + " - " + parts[1]);
         }
     }
+    static void searchBooks(Scanner input) {
+        System.out.print("Keyword: ");
+        String keyword = input.nextLine().toLowerCase();
+
+        ArrayList<String> books = loadBooks();
+        for (int i = 0; i < books.size(); i++) {
+            if (books.get(i).toLowerCase().contains(keyword)) {
+                String[] parts = books.get(i).split(";");
+                System.out.println(parts[0] + " - " + parts[1]);
+            }
+        }
+    }
      
      
 }
